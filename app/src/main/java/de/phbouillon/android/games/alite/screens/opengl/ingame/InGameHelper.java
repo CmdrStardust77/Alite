@@ -463,11 +463,11 @@ public class InGameHelper implements Serializable {
 			inGame.getMessage().repeatText("Fuel Scoop Activated", 1000000000l);
 			fuelScoopFuel += 20 * -inGame.getShip().getSpeed() / inGame.getShip().getMaxSpeed() * deltaTime;
 			int newFuel = (int) fuelScoopFuel;
-			if (newFuel > PlayerCobra.MAX_FUEL) {
-				newFuel = (int) PlayerCobra.MAX_FUEL;
+			if (newFuel > PlayerCobra.MAXIMUM_FUEL) {
+				newFuel = (int) PlayerCobra.MAXIMUM_FUEL;
 			}
 			alite.getCobra().setFuel(newFuel);
-			if (newFuel >= PlayerCobra.MAX_FUEL) {
+			if (newFuel >= PlayerCobra.MAXIMUM_FUEL) {
 				inGame.getMessage().repeatText("Temperature Level Critical", 1000000000l);
 			}
 		}

@@ -305,7 +305,7 @@ public class AliteButtons implements Serializable {
 		    (alite.getCobra().getSpeed() <= -PlayerCobra.MAX_SPEED) &&
 		    !inGame.isInExtendedSafeZone() && !inGame.isWitchSpace() &&
 		    (alite.getCobra().getCabinTemperature() == 0) &&
-		    !inGame.traverseObjects(torusTraverser)) {
+		    !inGame.traverseObjects(torusTraverser) && inGame.getHud() != null) {
 			buttons[TORUS_DRIVE].active = true;
 			if (alite.getCobra().getSpeed() < -PlayerCobra.TORUS_TEST_SPEED) {
 				buttons[TORUS_DRIVE].yellow = true;
@@ -334,12 +334,9 @@ public class AliteButtons implements Serializable {
 		    alite.getPlayer().getCondition() != Condition.RED &&
 		    inGame.getHud() != null && !inGame.isInSafeZone()) {
 			// Check for Hud to compensate for brief flickering if come back from Information screen
-			buttons[TIME_DRIVE].active = true;
+            buttons[TIME_DRIVE].active = true;
 			buttons[TIME_DRIVE].yellow = alite.getTimeFactor() > 1;
 		} else {
-			if (inGame.isDockingComputerActive()) {
-				return;
-			}
 			buttons[TIME_DRIVE].active = false;
 			if (alite.getTimeFactor() > 1) {
 				alite.setTimeFactor(1);
@@ -407,7 +404,7 @@ public class AliteButtons implements Serializable {
 		updateMissileButton();
 		updateDockingComputerButton();
 		updateTorusDriveButton();
-		updateTimeDriveButton();
+        updateTimeDriveButton();
 		updateHyperspaceButton();
 		updateGalHyperspaceButton();
 

@@ -42,7 +42,7 @@ public final class InfoGaugeRenderer implements Serializable {
 	private final Sprite missile;
 	private final Sprite emptySlot;
 	private final Sprite filledSlot;
-	private final Sprite targettingSlot;
+	private final Sprite targetingSlot;
 	private final Sprite lockedSlot;
 	private final String [] uiStrings = new String [] {"fs", "as", "fu", "ct", "lt", "al", "sp", "rl", "dc", "1", "2", "3", "4"};
 	private final Sprite [] uiTexts = new Sprite[13];
@@ -58,7 +58,7 @@ public final class InfoGaugeRenderer implements Serializable {
 		missile        = hud.genSprite("missile", 60, 994);
 		emptySlot      = hud.genSprite("missile_empty", 0, 0);
 		filledSlot     = hud.genSprite("missile_loaded", 0, 0);
-		targettingSlot = hud.genSprite("missile_targetting", 0, 0);
+		targetingSlot  = hud.genSprite("missile_targetting", 0, 0);
 		lockedSlot     = hud.genSprite("missile_targeted", 0, 0);
 		int sy = 700;
 		for (int i = 0; i < 13; i++) {
@@ -106,8 +106,8 @@ public final class InfoGaugeRenderer implements Serializable {
 	
 	private final float extractFuel(float alpha) {
 		float fuel = (float) alite.getCobra().getFuel();		
-		AliteColors.setGlColor(AliteColors.get().fuel(fuel / PlayerCobra.MAX_FUEL, alpha), Settings.alpha);
-	    return fuel / PlayerCobra.MAX_FUEL * GAUGE_LENGTH;
+		AliteColors.setGlColor(AliteColors.get().fuel(fuel / PlayerCobra.MAXIMUM_FUEL, alpha), Settings.alpha);
+        return fuel / PlayerCobra.MAXIMUM_FUEL * GAUGE_LENGTH;
 	}
 	
 	private final float extractCabinTemperature(float alpha) {
@@ -216,9 +216,9 @@ public final class InfoGaugeRenderer implements Serializable {
 							   ct.getTextureCoordX(165 + i * 80 + 80), ct.getTextureCoordY(1027));
 					lockedSlot.justRender();					
 				} else if (i == installedMissiles - 1 && alite.getCobra().isMissileTargetting()) {
-					targettingSlot.setPosition(ct.getTextureCoordX(165 + i * 80), ct.getTextureCoordY(990),
+					targetingSlot.setPosition(ct.getTextureCoordX(165 + i * 80), ct.getTextureCoordY(990),
 							   ct.getTextureCoordX(165 + i * 80 + 80), ct.getTextureCoordY(1027));
-					targettingSlot.justRender();										
+					targetingSlot.justRender();
 				} else {
 					filledSlot.setPosition(ct.getTextureCoordX(165 + i * 80), ct.getTextureCoordY(990),
   										   ct.getTextureCoordX(165 + i * 80 + 80), ct.getTextureCoordY(1027));

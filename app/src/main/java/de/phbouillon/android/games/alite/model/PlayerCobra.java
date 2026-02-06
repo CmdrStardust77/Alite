@@ -42,7 +42,6 @@ public class PlayerCobra {
 	public static final float TORUS_SPEED           = 33400.0f; // torus drive speed
 	public static final float TORUS_TEST_SPEED      = 10000.0f; // value to use to test if torus is engaged
 	public static final float MAX_SHIELD            = 24;
-	public static final float MAX_FUEL              = 70;
 	public static final float MAX_CABIN_TEMPERATURE = 30;
 	public static final float MAX_LASER_TEMPERATURE = 48;
 	public static final float MAX_ALTITUDE          = 30;
