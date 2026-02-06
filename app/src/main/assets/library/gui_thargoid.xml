@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Thargoid Invasion Ships</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_thargoid"/>
 	<p>Though most of the Thargoid Space Fleet is currently engaged by
@@ -26,7 +27,9 @@
 	Hyperspace Capability:,Yes;
         </table>
     </Text>
-    <BackgroundImage name="thargoid_gui"/>
+    <Image name="thargoid_gui"/>
   </Content>
-    </Page>
+  <Next>gui_thargon</Next>
+  <Previous>gui_sidewinder</Previous>
+</Page>
 

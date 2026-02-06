@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Docking computer</Header>
+  <Content>
     <Text>
     	<InlineImage name="docking"/>
     	<p>This is available from all Tech level 9 planets; docking
@@ -18,8 +19,10 @@
     	<p>[b]Docking computer specification:[/b] The SinCorn RemLock D&amp;A
     	System is a sophisticated and expensive piece of gadgetry. It comes
     	with MemnSomn pilot interaction to induce hi-cram sleep during the
-    	manoeuvre.</p>
+    	maoeuvre.</p>
     </Text>
   </Content>
-    </Page>
+  <Next>ip_n_intergal</Next>
+  <Previous>ip_n_cargo</Previous>
+</Page>
 

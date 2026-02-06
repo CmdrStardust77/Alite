@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Energy Bombs</Header>
+  <Content>
     <Text>
     	<InlineImage name="energy_bomb"/>
     	<p>An energy bomb will be offered for sale at a planet of Tech Level
@@ -14,5 +15,7 @@
     	combat using &apos;launch-and-leave&apos; techniques.</p>
     </Text>
   </Content>
-    </Page>
+  <Next>ip_defensive</Next>
+  <Previous>ip_w_missiles</Previous>
+</Page>
 

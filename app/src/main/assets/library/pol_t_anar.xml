@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Anarchy Planets</Header>
+  <Content>
     <Text>
         <p>A trader can make his biggest profits here and reach his grave
         the quickest. Worlds like Onisou and Xeesenri have vast wreck-yards
@@ -26,5 +27,7 @@
     </Text>
     <Image name="maesin"/>
   </Content>
-    </Page>
+  <Next>pol_aliens</Next>
+  <Previous>pol_t_dict</Previous>
+</Page>
 

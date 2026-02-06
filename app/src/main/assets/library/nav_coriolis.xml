@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>A Coriolis Space Station</Header>
+  <Content>
     <Text>
 	<p>Every world registered with the Galactic Co-operative has several
 	Coriolis space stations in orbit at various altitudes. Coriolis
@@ -35,5 +36,7 @@
       </Text>
     </Image>
   </Content>
-    </Page>
+  <Next>nav_leaving</Next>
+  <Previous>nav_controls</Previous>
+</Page>
 

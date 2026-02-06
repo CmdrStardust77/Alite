@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Pirate Vessels</Header>
+  <Content>
     <Text>
       <p>There are several ways of identifying a space-going ship
       as &apos;pirate occupied&apos;, and this is essential since pirates
@@ -20,5 +21,7 @@
       trader will learn the tell-tale signs of pirate presence.</p>
     </Text>
   </Content>
-    </Page>
+  <Next>ip_e_police</Next>
+  <Previous>ip_e_bounty</Previous>
+</Page>
 

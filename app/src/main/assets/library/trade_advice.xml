@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Advice to Traders</Header>
+  <Content>
     <Text>
         <p>The Cobra trade ship can be fitted with four lasers, four
         missiles and one energy bomb. This should be sufficient to make
@@ -15,7 +16,7 @@
         <p>Demand for goods varies widely and prices within planets
         fluctuate, but GalCop regulations prohibit planets from advertising
         their requirements or announcing their market prices beyond their
-        own System Space. Any trader, therefore, approaches all transactions
+        own System Space. Any trader, therefore, approaces all transactions
         with a certain financial risk.</p>
         <p>Trade depends upon demand, and selling prices depend upon the
         [i]level[/i] of demand on the planet, and its available money. None
@@ -45,5 +46,7 @@
         <p>[b]IF THE PROFIT ISN&apos;T WORTH IT, TRADE IT SOMEWHERE ELSE.[/b]</p>
     </Text>
   </Content>
-    </Page>
+  <Next>trade_alt</Next>
+  <Previous>trade_how</Previous>
+</Page>
 

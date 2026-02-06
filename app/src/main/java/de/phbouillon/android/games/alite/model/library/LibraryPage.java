@@ -132,7 +132,7 @@ public class LibraryPage {
 
 	public static LibraryPage load(String fileName, InputStream is) {
 		LibraryPage result = new LibraryPage();
-
+        AliteLog.d("LibraryPage", "Loading " + fileName);
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();

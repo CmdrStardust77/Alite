@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Lyre</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_lyre"/>
 	<p>Data missing</p>
@@ -17,7 +18,9 @@
 	Home Galaxy:,7;
         </table>
     </Text>
-    <BackgroundImage name="lyre"/>
+    <Image name="lyre"/>
   </Content>
-    </Page>
+  <Next>gui_mamba</Next>
+  <Previous>gui_lora</Previous>
+</Page>
 

@@ -118,18 +118,15 @@ public class IcosDockingBay implements Serializable {
 	}
 
 	void render() {
-		boolean enabled = GLES11.glIsEnabled(GLES11.GL_CULL_FACE);
-		if (enabled) {
-			GLES11.glDisable(GLES11.GL_CULL_FACE);
-		}
+		GLES11.glDisable(GLES11.GL_CULL_FACE);
+        GLES11.glEnable(GLES11.GL_NORMALIZE);
 		alite.getTextureManager().setTexture(textureFilename);
 		GLES11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		GLES11.glVertexPointer(3, GLES11.GL_FLOAT, 0, vertexBuffer);
 		GLES11.glNormalPointer(GLES11.GL_FLOAT, 0, normalBuffer);
 		GLES11.glTexCoordPointer(2, GLES11.GL_FLOAT, 0, texCoordBuffer);		
 		GLES11.glDrawArrays(GLES11.GL_TRIANGLES, 0, numberOfVertices);
-		if (enabled) {
-			GLES11.glEnable(GLES11.GL_CULL_FACE);
-		}		
+        GLES11.glDisable(GLES11.GL_NORMALIZE);
+        GLES11.glEnable(GLES11.GL_CULL_FACE);
 	}
 }

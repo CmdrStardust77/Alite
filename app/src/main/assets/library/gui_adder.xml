@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Adder</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_adder"/>
 	<p>Manufactured by Outworld Workshops, a rogue breakaway company
@@ -22,7 +23,9 @@
 	Hyperspace Capability:,Yes;
         </table>
     </Text>
-    <BackgroundImage name="adder"/>
+    <Image name="adder"/>
   </Content>
-    </Page>
+  <Next>gui_anaconda</Next>
+  <Previous>shipguide</Previous>
+</Page>
 

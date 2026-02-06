@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Political Profile of the Universe</Header>
+  <Content>
     <Text>
         <p>To trade successfully, and profitably, will almost certainly
         require you to fly the Cobra trade ship into politically unstable
@@ -26,5 +27,7 @@
         </table>
     </Text>
   </Content>
-    </Page>
+  <Next>pol_t_corp</Next>
+  <Previous>trade_a_illegal</Previous>
+</Page>
 

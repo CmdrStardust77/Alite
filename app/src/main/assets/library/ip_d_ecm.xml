@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>ECM</Header>
+  <Content>
     <Text>
         <InlineImage name="ecm"/>
 	<p>An ECM System (literally Electronic Counter Measures System) is
@@ -18,5 +19,7 @@
 	nuclear flux chains.</p>
     </Text>
   </Content>
-    </Page>
+  <Next>ip_d_escape</Next>
+  <Previous>ip_d_shields</Previous>
+</Page>
 

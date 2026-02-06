@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Your Rating as a Combateer</Header>
+  <Content>
     <Text>
       <p>To become an élite combateer requires great skill and
       great patience, because expert trading is essential before
@@ -35,5 +36,7 @@
       will not be left alone.</p>
     </Text>
   </Content>
-    </Page>
+  <Next>navigation</Next>
+  <Previous>int_status</Previous>
+</Page>
 

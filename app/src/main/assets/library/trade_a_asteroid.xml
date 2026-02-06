@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Asteroid Mining</Header>
+  <Content>
     <Text>
         <p>There is money in rock, but to make the most of it a Cobra
         ship must be fitted with a fuel scoop and a MinReduc 15 Mining
         Laser (or some equivalent type). The mining laser will blast very
         large asteroids into very small fragments and the scoop can rapidly
-        swallow this tradable ore.</p>
+        swallow this tradeable ore.</p>
     </Text>
     <Image name="asteroid">
       <Text>
@@ -18,5 +19,7 @@
       </Text>
     </Image>
   </Content>
-    </Page>
+  <Next>trade_a_cargo</Next>
+  <Previous>trade_a_piracy</Previous>
+</Page>
 

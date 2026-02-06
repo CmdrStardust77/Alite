@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Making For Your Target World</Header>
+  <Content>
     <Text>
     	<p>Having left the space station you will be in low orbit above the
     	planet Lave, moving at low velocity. Decrease your velocity to
@@ -56,5 +57,7 @@
       </Text>
     </Image>
   </Content>
-    </Page>
+  <Next>nav_intergal</Next>
+  <Previous>nav_console</Previous>
+</Page>
 

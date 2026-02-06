@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Mamba</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_mamba"/>
 	<p>Fighter which grew out of custom-built craft primarily designed
@@ -20,7 +21,9 @@
 	Hyperspace Capability:,No;
         </table>
     </Text>
-    <BackgroundImage name="mamba"/>
+    <Image name="mamba"/>
   </Content>
-    </Page>
+  <Next>gui_moray</Next>
+  <Previous>gui_lyre</Previous>
+</Page>
 

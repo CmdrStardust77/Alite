@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Asteroid mining lasers</Header>
+  <Content>
     <Text>
     	<p>Asteroid mining involves the fitting of fuel scoops and special
     	mining lasers to your ship. Ships which always carry them are known
@@ -16,5 +17,7 @@
     	and matter scoop.</p>
     </Text>
   </Content>
-    </Page>
+  <Next>ip_n_retrorockets</Next>
+  <Previous>ip_n_intergal</Previous>
+</Page>
 

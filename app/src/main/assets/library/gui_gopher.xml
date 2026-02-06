@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Gopher</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_gopher"/>
 	<p>Data missing</p>
@@ -17,7 +18,9 @@
 	Home Galaxy:,4;
         </table>
     </Text>
-    <BackgroundImage name="gopher"/>
+    <Image name="gopher"/>
   </Content>
-    </Page>
+  <Next>gui_harlequin</Next>
+  <Previous>gui_gecko</Previous>
+</Page>
 

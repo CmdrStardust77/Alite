@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Cobra Mk I</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_cobramki"/>
 	<p>Combat-trader craft favoured latterly by pirates, the Mark I
@@ -23,7 +24,9 @@
 	Hyperspace Capability:,Yes;
         </table>
     </Text>
-    <BackgroundImage name="cobramki"/>
+    <Image name="cobramki"/>
   </Content>
-    </Page>
+  <Next>gui_cobraiii</Next>
+  <Previous>gui_bushmaster</Previous>
+</Page>
 

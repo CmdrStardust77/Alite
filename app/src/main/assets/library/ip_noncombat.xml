@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Non-Combative Equipment</Header>
+  <Content>
     <Text>
     	<p>In order to explore the universe, your Cobra must constantly be
     	repaired and refueled. In this section, some of the equipment used
@@ -9,5 +10,7 @@
     	travel through the stars.</p>
     </Text>
   </Content>
-    </Page>
+  <Next>ip_n_fuel</Next>
+  <Previous>ip_d_escape</Previous>
+</Page>
 

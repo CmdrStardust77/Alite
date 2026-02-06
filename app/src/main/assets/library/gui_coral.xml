@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Coral</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_coral"/>
 	<p>Data missing</p>
@@ -17,7 +18,9 @@
 	Home Galaxy:,6;
         </table>
     </Text>
-    <BackgroundImage name="coral"/>
+    <Image name="coral"/>
   </Content>
-    </Page>
+  <Next>gui_cottonmouth</Next>
+  <Previous>gui_cobraiii</Previous>
+</Page>
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Mussurana</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_mussurana"/>
 	<p>Data missing</p>
@@ -17,7 +18,9 @@
 	Home Galaxy:,4;
         </table>
     </Text>
-    <BackgroundImage name="mussurana"/>
+    <Image name="mussurana"/>
   </Content>
-    </Page>
+  <Next>gui_shuttle</Next>
+  <Previous>gui_moray</Previous>
+</Page>
 

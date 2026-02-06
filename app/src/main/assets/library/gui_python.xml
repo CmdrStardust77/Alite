@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Python</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_python"/>
 	<p>One of the larger trading vessels manufactured in Inera Orbit
@@ -8,7 +9,7 @@
 	cramped and spartan in contract to facilities for cargo and
 	&apos;alien environment&apos; transport. Though slow and ponderous,
 	the craft has powerful CC-Voltaire shields and Volt-Variscan Pulse
-	lasers, earning it the nickname of the &apos;space porcupine&apos;.
+	lasers, earning it the nichname of the &apos;space porcupine&apos;.
 	Not commonly attacked by pirate ships, but a popular craft for
 	freebooters, usually used as a way-station and storage hulk.</p>
 	<table>[o]Dimensions:[/o],[o]206x103x336m[/o];
@@ -23,7 +24,9 @@
 	Hyperspace Capability:,Yes;
         </table>
     </Text>
-    <BackgroundImage name="python"/>
+    <Image name="python"/>
   </Content>
-    </Page>
+  <Next>gui_rattlesnake</Next>
+  <Previous>gui_shuttle</Previous>
+</Page>
 

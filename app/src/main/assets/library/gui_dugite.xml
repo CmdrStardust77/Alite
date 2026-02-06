@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Dugite</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_dugite"/>
 	<p>Data missing</p>
@@ -17,7 +18,9 @@
 	Home Galaxy:,7;
         </table>
     </Text>
-    <BackgroundImage name="dugite"/>
+    <Image name="dugite"/>
   </Content>
-    </Page>
+  <Next>gui_ferdelance</Next>
+  <Previous>gui_cottonmouth</Previous>
+</Page>
 

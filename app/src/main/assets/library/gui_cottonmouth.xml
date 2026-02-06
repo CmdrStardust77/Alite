@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Cottonmouth</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_cottonmouth"/>
 	<p>Data missing</p>
@@ -17,7 +18,9 @@
 	Home Galaxy:,2;
         </table>
     </Text>
-    <BackgroundImage name="cottonmouth"/>
+    <Image name="cottonmouth"/>
   </Content>
-    </Page>
+  <Next>gui_dugite</Next>
+  <Previous>gui_coral</Previous>
+</Page>
 

@@ -41,6 +41,7 @@ import de.phbouillon.android.games.alite.ScreenCodes;
 import de.phbouillon.android.games.alite.SoundManager;
 import de.phbouillon.android.games.alite.colors.AliteColors;
 import de.phbouillon.android.games.alite.model.Player;
+import de.phbouillon.android.games.alite.model.PlayerCobra;
 import de.phbouillon.android.games.alite.model.Rating;
 import de.phbouillon.android.games.alite.model.generator.Raxxla;
 import de.phbouillon.android.games.alite.model.generator.SystemData;
@@ -397,8 +398,8 @@ public class GalaxyScreen extends AliteScreen {
 
 		if (hyperspaceSystem != null) {
 			int xp = hyperspaceSystem.getX();
-			int x1 = transformX((int) ((float) xp - 17.5f));
-			int x2 = transformX((int) ((float) xp + 17.5f));
+			int x1 = transformX((int) ((float) xp - 17.5f * PlayerCobra.MAXIMUM_FUEL / 70.0f));
+			int x2 = transformX((int) ((float) xp + 17.5f * PlayerCobra.MAXIMUM_FUEL / 70.0f));
 			int px = transformX(xp);
 			int py = transformY(hyperspaceSystem.getY());
 			g.drawDashedCircle(px, py, (x2 - x1) >> 1, AliteColors.get().dashedFuelCircle(), 64);

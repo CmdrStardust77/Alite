@@ -432,6 +432,7 @@ public class FileUtils {
 		setEquipped(cobra, EquipmentStore.navalEnergyUnit, (equipment & 1) > 0);
 		setEquipped(cobra, EquipmentStore.cloakingDevice, (equipment & 2) > 0);
 		setEquipped(cobra, EquipmentStore.ecmJammer, (equipment & 4) > 0);
+        setEquipped(cobra, EquipmentStore.largeFuelTank, (equipment & 8) > 0);
 		player.setCheater(readByte(dis) != 0);
 		readByte(dis);
 		readByte(dis);
@@ -622,7 +623,8 @@ public class FileUtils {
 		dos.writeByte(lasers[2] + (lasers[3] << 4));
 		equipment = (cobra.isEquipmentInstalled(EquipmentStore.navalEnergyUnit) ? 1 : 0) +
 				    (cobra.isEquipmentInstalled(EquipmentStore.cloakingDevice) ? 2 : 0) +
-				    (cobra.isEquipmentInstalled(EquipmentStore.ecmJammer) ? 4 : 0);
+				    (cobra.isEquipmentInstalled(EquipmentStore.ecmJammer) ? 4 : 0) +
+                    (cobra.isEquipmentInstalled(EquipmentStore.largeFuelTank) ? 8 : 0);
 		dos.writeByte(equipment);
 		dos.writeByte(player.isCheater() ? 1 : 0);
 		dos.writeByte(0); // Placeholder for "special equipment"

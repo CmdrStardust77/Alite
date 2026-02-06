@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Gecko</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_gecko"/>
 	<p>Patented by Robert Bream, but not manufactured until Ace and
@@ -15,7 +16,7 @@
         Armaments:,Ingram 1919 A4 laser[c];
         ,LM Homing missile;
 	Maximum Velocity:,0.30 LM;
-	Inservice Date:,2852 (Ace &amp; Faber HullWorks[c] Lerelace);
+	Inservice Date:,2852 (Ace &amp; Faber HullWorks, Lerelace);
 	Crew Number:,1 or 2;
 	Hull Stress Factor:,Tto 48-94;
 	Manouevrability:,CF 7;
@@ -23,7 +24,9 @@
 	Hyperspace Capability:,Not available;
         </table>
     </Text>
-    <BackgroundImage name="gecko"/>
+    <Image name="gecko"/>
   </Content>
-    </Page>
+  <Next>gui_gopher</Next>
+  <Previous>gui_ferdelance</Previous>
+</Page>
 

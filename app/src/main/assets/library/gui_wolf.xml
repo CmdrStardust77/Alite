@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Wolf Mk II</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_wolfmkii"/>
 	<p>Data missing</p>
@@ -16,7 +17,9 @@
 	Hyperspace Capability:,Yes;
         </table>
     </Text>
-    <BackgroundImage name="wolfmkii"/>
+    <Image name="wolfmkii"/>
   </Content>
-    </Page>
+  <Next>gui_yellowbelly</Next>
+  <Previous>gui_viper</Previous>
+</Page>
 

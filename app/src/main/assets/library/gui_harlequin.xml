@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Harlequin</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_harlequin"/>
 	<p>Data missing</p>
@@ -17,7 +18,9 @@
 	Home Galaxy:,8;
         </table>
     </Text>
-    <BackgroundImage name="harlequin"/>
+    <Image name="harlequin"/>
   </Content>
-    </Page>
+  <Next>gui_boomslang</Next>
+  <Previous>gui_gopher</Previous>
+</Page>
 

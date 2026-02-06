@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Boa Class Cruiser</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_boa"/>
 	<p>Although marginally smaller than the Python, which it superseded,
@@ -24,7 +25,9 @@
 	Hyperspace Capability:,Yes;
         </table>
     </Text>
-    <BackgroundImage name="boaclasscruiser"/>
+    <Image name="boaclasscruiser"/>
   </Content>
-    </Page>
+  <Next>gui_bushmaster</Next>
+  <Previous>gui_asp</Previous>
+</Page>
 

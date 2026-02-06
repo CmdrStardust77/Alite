@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Interplanetary Travel</Header>
+  <Content>
     <Text>
       <p>Not all ships in deep space, even small fighters, are pirates. Most
       ships will respond to hostile action with hostile action. If you attack
@@ -20,5 +21,7 @@
       </Text>
     </Image>
   </Content>
-    </Page>
+  <Next>ip_manoeuvring</Next>
+  <Previous>nav_docking</Previous>
+</Page>
 

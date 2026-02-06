@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Other Space Types</Header>
+  <Content>
     <Text>
       <p>Not all vessels a pilot encounters throughout his life are
       enemies. Some encounters may open up a chance for profitable
-      trading, so an instinct for possibilities is important for
+      trading, so an instinct for possibilties is important for
       success.</p>
     </Text>
   </Content>
-    </Page>
+  <Next>ip_o_hermits</Next>
+  <Previous>ip_e_thargoids</Previous>
+</Page>
 

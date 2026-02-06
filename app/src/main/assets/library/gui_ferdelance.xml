@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Fer-de-Lance</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_ferdelance"/>
 	<p>A Zorgon Petterson Group (Zee Pee Gee) designed vessel favoured
@@ -8,7 +9,7 @@
 	corporations. A sophisticated craft, capable of both limited
 	trading, combat, and leisure function. The spacious hull is mainly
 	given over to sophisticated weaponry, defences and navigation
-	equipment at the expense of cargo capacity. Cabin accommodation is
+	equipment at the expense of cargo capacity. Cabin accomodation is
 	large and luxurious with extensive Owndirt Inc. recycling facilities,
 	encouraging extended live-in periods (useful whilst pursuing a
 	quarry). Fuel scoop is a standard fitting, ensuring complete
@@ -26,7 +27,9 @@
 	Hyperspace Capability:,Yes;
         </table>
     </Text>
-    <BackgroundImage name="ferdelance"/>
+    <Image name="ferdelance"/>
   </Content>
-    </Page>
+  <Next>gui_gecko</Next>
+  <Previous>gui_dugite</Previous>
+</Page>
 

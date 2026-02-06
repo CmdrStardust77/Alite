@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Rattlesnake</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_rattlesnake"/>
 	<p>Data missing</p>
@@ -17,7 +18,9 @@
 	Home Galaxy:,8;
         </table>
     </Text>
-    <BackgroundImage name="rattlesnake"/>
+    <Image name="rattlesnake"/>
   </Content>
-    </Page>
+  <Next>gui_sidewinder</Next>
+  <Previous>gui_python</Previous>
+</Page>
 

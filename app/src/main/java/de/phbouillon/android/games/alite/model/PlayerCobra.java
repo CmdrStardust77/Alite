@@ -34,7 +34,7 @@ public class PlayerCobra {
 	public static final int   DIR_LEFT  = 3;
 	
 	public static final int   EQUIPMENT_ITEMS       = EquipmentStore.ENTRIES - 2;
-	public static final int   MAXIMUM_FUEL          = 70;
+	public static int         MAXIMUM_FUEL          = 70;
 	public static final int   MAXIMUM_MISSILES      = 4;
 	public static final int   DEFAULT_MISSILES      = 3;
 	public static final int   SPEED_UP_FACTOR       = 10;       // speed-up factor to use when torus can't be engaged
@@ -87,7 +87,8 @@ public class PlayerCobra {
 		}
 		for (int i = 0; i < equipment.length; i++) {
 			equipmentInstalled[i] = false;
-		}		
+		}
+        MAXIMUM_FUEL = 70;
 		fuel = MAXIMUM_FUEL;
 		missiles = DEFAULT_MISSILES;
 		energyBank = new int[4];
@@ -109,9 +110,10 @@ public class PlayerCobra {
 		equipment[10] = EquipmentStore.miningLaser;
 		equipment[11] = EquipmentStore.militaryLaser;
 		equipment[12] = EquipmentStore.retroRockets;
-		equipment[13] = EquipmentStore.navalEnergyUnit;
-		equipment[14] = EquipmentStore.cloakingDevice;
-		equipment[15] = EquipmentStore.ecmJammer;
+        equipment[13] = EquipmentStore.largeFuelTank;
+		equipment[14] = EquipmentStore.navalEnergyUnit;
+		equipment[15] = EquipmentStore.cloakingDevice;
+		equipment[16] = EquipmentStore.ecmJammer;
 	}
 	
 	private void fillTradeGoods() {
@@ -169,6 +171,9 @@ public class PlayerCobra {
 				if (equip == EquipmentStore.largeCargoBay) {
 					maxCargoHold = Weight.tonnes(35);
 				}
+                if (equip == EquipmentStore.largeFuelTank) {
+                    MAXIMUM_FUEL = 125;
+                }
 				equipmentInstalled[i] = true;
 				return;
 			}
@@ -181,6 +186,9 @@ public class PlayerCobra {
 				if (equip == EquipmentStore.largeCargoBay) {
 					maxCargoHold = Weight.tonnes(20);
 				}
+                if (equip == EquipmentStore.largeFuelTank) {
+                    MAXIMUM_FUEL = 70;
+                }
 				equipmentInstalled[i] = false;
 				return;
 			}
@@ -192,8 +200,11 @@ public class PlayerCobra {
 			equipmentInstalled[i] = false;
 			if (equipment[i] == EquipmentStore.largeCargoBay) {
 				maxCargoHold = Weight.tonnes(20);
-			}			
-		}		
+			}
+            if (equipment[i] == EquipmentStore.largeFuelTank) {
+                MAXIMUM_FUEL = 70;
+            }
+		}
 		lasers[0] = EquipmentStore.pulseLaser;
 		for (int i = 1; i < 4; i++) {
 			lasers[i] = null;

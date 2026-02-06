@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>How to trade</Header>
+  <Content>
     <Text>
         <p>The [p]Buy Screen[/p] activates a list of basic trade items at
         current market prices.</p>
@@ -16,7 +17,7 @@
         screen will indicate your remaining credit facility.</p>
 	<p>The Cobra trade ship must dock with a Coriolis space station
 	before buying or selling cargo. It has no Free Space trade facility,
-	apart from routine jettisoning of canisters.</p>
+	apart from routine jettisoning of cannisters.</p>
 	<p>Once docked, the selling process is automated, although there
 	is no requirement to sell. On the [p]Inventory Screen[/p] a list
 	of all your purchased items is given. You can choose if you wish
@@ -41,5 +42,7 @@
       </Text>
     </Image>
   </Content>
-    </Page>
+  <Next>trade_advice</Next>
+  <Previous>trading</Previous>
+</Page>
 

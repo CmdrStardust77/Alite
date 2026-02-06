@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="Alite">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2026-02-06T06:06:27.188176200Z">
+        <DropdownSelection timestamp="2026-02-06T10:59:30.646588200Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Philipp Bouillon\.android\avd\Galaxy_S24.avd" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Philipp Bouillon\.android\avd\Pixel_9a.avd" />
             </handle>
           </Target>
         </DropdownSelection>

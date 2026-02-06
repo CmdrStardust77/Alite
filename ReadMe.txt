@@ -1,4 +1,4 @@
-Alite v. 1.5.9 by Philipp Bouillon and Duane McDonnell
+Alite v. 1.6.0 by Philipp Bouillon and Duane McDonnell
 
 About
 -----
@@ -20,6 +20,12 @@ Alite is inspired by classic Elite, (c) Acornsoft, Bell & Braben.
 
 Version History
 ---------------
+Version 1.6.0 Migrated Alite to AndroidStudio and used gradle
+              instead of ant. No new features, but works on modern
+              Android phones again. Removed OBB support, so you
+              can now only build an all-in-one apk, unless you go
+              through the hassle of setting up downloaders again...
+
 Version 1.5.9 Beginning of a controller implementation that allows the
               complete control of Alite via a gamepad. The general
               architecture is now present. The tedious bit is now to

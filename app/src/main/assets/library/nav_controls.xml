@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Navigational Controls</Header>
+  <Content>
     <Text>
       <p>It is important that you do [b]not[/b] select [ip]Launch[/pi] from
       the command console for the moment.</p>
@@ -51,5 +52,7 @@
       </Text>
     </Image>
   </Content>
-    </Page>
+  <Next>nav_coriolis</Next>
+  <Previous>navigation</Previous>
+</Page>
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Thargon</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_thargon"/>
 	<p>Data missing</p>
@@ -16,7 +17,9 @@
 	Hyperspace Capability:,Yes;
         </table>
     </Text>
-    <BackgroundImage name="thargon"/>
+    <Image name="thargon"/>
   </Content>
-    </Page>
+  <Next>gui_transporter</Next>
+  <Previous>gui_thargoid</Previous>
+</Page>
 

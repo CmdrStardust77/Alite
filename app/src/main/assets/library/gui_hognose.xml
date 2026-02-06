@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Hognose</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_hognose"/>
 	<p>Data missing</p>
@@ -17,7 +18,9 @@
 	Home Galaxy:,2;
         </table>
     </Text>
-    <BackgroundImage name="hognose"/>
+    <Image name="hognose"/>
   </Content>
-    </Page>
+  <Next>gui_indigo</Next>
+  <Previous>gui_boomslang</Previous>
+</Page>
 

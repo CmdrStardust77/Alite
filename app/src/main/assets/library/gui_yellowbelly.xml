@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Yellowbelly</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_yellowbelly"/>
 	<p>Data missing</p>
@@ -17,7 +18,8 @@
 	Home Galaxy:,6;
         </table>
     </Text>
-    <BackgroundImage name="yellowbelly"/>
+    <Image name="yellowbelly"/>
   </Content>
-  </Page>
+  <Previous>gui_wolf</Previous>
+</Page>
 

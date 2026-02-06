@@ -70,11 +70,16 @@ public class EquipmentScreen extends TradeScreen {
 			"equipment_icons/galactic_hyperdrive",
 			"equipment_icons/mining_laser",
 			"equipment_icons/military_laser",
-			"equipment_icons/retro_rockets"};
+			"equipment_icons/retro_rockets",
+            "equipment_icons/large_fuel_tank"};
 	
 	public EquipmentScreen(Game game) {
 		super(game, 15);
-		loopingAnimation = true;
+        X_OFFSET = 50;
+        GAP_X = 270;
+        GAP_Y = 290;
+        COLUMNS = 6;
+        loopingAnimation = true;
 	}
 	
 	@Override
@@ -147,6 +152,15 @@ public class EquipmentScreen extends TradeScreen {
 					// with the given tech level.
 					return;
 				}
+                if (techLevel < 15 && counter == 15) {
+                    // A large fuel tank is ONLY available on world of tech
+                    // level 15.
+                    return;
+                }
+                if (counter > 15) {
+                    // Only 16 equipment items present at the moment...
+                    return;
+                }
 			}
 		}		
 	}
@@ -457,8 +471,8 @@ public class EquipmentScreen extends TradeScreen {
 	}
 
 	private void readEquipment(final Graphics g) {
-		equipment = new Pixmap[15][1];
-		for (int i = 0; i < 15; i++) {
+		equipment = new Pixmap[16][1];
+		for (int i = 0; i < 16; i++) {
 			readEquipmentStill(g, i, paths[i]);
 		}
 	}

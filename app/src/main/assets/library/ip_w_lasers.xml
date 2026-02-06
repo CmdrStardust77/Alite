@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Lasers</Header>
+  <Content>
     <Text>
     	<p>Pulse lasers are initially housed only in the front of the ship,
     	and so no sights appear across rear or side views until such time as
@@ -8,7 +9,7 @@
     	lasers for these mountings. As we shall see, with sufficient cash
     	you will also be able to upgrade pulse to more powerful beam lasers.</p>
     	<InlineImage name="fire"/>
-    	<p>The Cobra astrogation console accommodates a single laser-fire button
+    	<p>The Cobra astrogation console accomodates a single laser-fire button
     	shown above. Even fully equipped only one laser may be fired at a time.
     	If a laser overheats it will not fire (observe the laser temperature bar).</p>
     	<p>Lasers are the principal armament of all space fighters.</p>
@@ -32,7 +33,7 @@
     	<p>Military lasers are the very height of sophistication. Costing fifteen
     	times the price of a pulse laser and available only on planets at Tech
     	level 10, it is an extremely effective piece of hardware.</p>
-    	<p>(See also Mining lasers under [b]Non-combative Equipment[/b] )</p>
+    	<p>(See alo Mining lasers under [b]Non-combative Equipment[/b] )</p>
     	<p>[b]Military laser specification:[/b] Range and penetration twice
     	as effective as the Ingram model M1928A2 beam laser. This is
     	Lance &amp; Ferman&apos;s entré into the laser market. Hitherto known
@@ -42,5 +43,7 @@
     	comes with x4SUSAT sights.</p>
     </Text>
   </Content>
-    </Page>
+  <Next>ip_w_missiles</Next>
+  <Previous>ip_weaponry</Previous>
+</Page>
 

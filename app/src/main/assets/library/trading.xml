@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Intergalactic Trading</Header>
+  <Content>
     <Text>
         <p>The Cobra Mk. III, designed primarily as a trading ship, combines
         combat efficiency and manoeuvrability with substantial cargo space
@@ -12,7 +13,7 @@
         automatically added or deducted and this is reflected in the prices
         shown. The auto-trader system, employed by the Cobra, does not allow
         for more specific trading deals to be performed.</p>
-    	<p>A selection of the more valuable alien items that are tradable
+    	<p>A selection of the more valuable alien items that are tradeable
     	is given in this manual, but the trader must deal with them in
     	person.</p>
     	<p>Once docked you are linked directly with the CorCom Trade System.
@@ -48,5 +49,7 @@
     	so trading them is risky.</p>
     </Text>
   </Content>
-    </Page>
+  <Next>trade_how</Next>
+  <Previous>ip_n_retrorockets</Previous>
+</Page>
 

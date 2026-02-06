@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Interior of a Cobra Mk III</Header>
+  <Content>
     <Text>
       <p>The Cobra is essentially a single-pilot trade-ship, but has
       been designed to support a second person, provided
@@ -24,7 +25,7 @@
       System Space Kruger &apos;lightfast&apos; motors, and the Irrikon
       Thru-Space drives. Also here are the rear laser housings,
       the ECM capsule, the Zieman shield generators, and
-      energy banks, and the Witch-Space fuel condensers
+      energy banks, and the Witch-Space fuel condensors
       (Quirium). There are both internal and external access
       panels. Radiation level is high.</p>
       <p>[bp]The living and hygiene section[/pb] is below the main bridge,
@@ -41,5 +42,7 @@
       for emergency use.</p>
     </Text>
   </Content>
-    </Page>
+  <Next>int_status</Next>
+  <Previous>intro</Previous>
+</Page>
 

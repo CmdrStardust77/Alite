@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Defensive Measures</Header>
+  <Content>
     <Text>
 	<p>A wise commander will not only concentrate on attacking, but will
 	also equip his ship with a range of defensive measures. The
@@ -8,5 +9,7 @@
 	disposal.</p>
     </Text>
   </Content>
-    </Page>
+  <Next>ip_d_safety</Next>
+  <Previous>ip_w_energybombs</Previous>
+</Page>
 

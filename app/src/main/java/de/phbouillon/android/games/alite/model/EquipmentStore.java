@@ -19,7 +19,7 @@ package de.phbouillon.android.games.alite.model;
  */
 
 public class EquipmentStore {
-	public static final int ENTRIES = 18;
+	public static final int ENTRIES = 19;
 	
 	public static final Equipment fuel = new Equipment("Fuel (WS Thru-Space Drive)", -1, "Fuel", "", false);
 	public static final Equipment missiles = new Equipment("Lance And Ferman Missiles", 300, "Missiles", "a Missile", false);
@@ -36,7 +36,8 @@ public class EquipmentStore {
 	public static final Laser miningLaser = new Laser("Kruger ARM64 Sp. Mining Laser", 8000, "Mining Laser", 2, "a Mining Laser (%1)", 479041916l, 7, 0x7f00ff00l, false, "textures/laser_green.png");
 	public static final Laser militaryLaser = new Laser("M1928A2 Military Laser", 60000, "Military Laser", 3, "a Military Laser (%1)", 179640718l, 11, 0x7fff00ffl, true, "textures/laser_purple.png");
 	public static final Equipment retroRockets = new Equipment("Xasar Ion Retro-Rockets", 80000, "Retro Rockets", "a set of Retro Rockets", true);
-	
+    public static Equipment largeFuelTank = new Equipment("Stardust Inc. 12.5 Ly Maxotank", 75000, "Large Fuel Tank", "a Large Fuel Tank", true);
+
 	public static final Equipment navalEnergyUnit = new Equipment("Naval Energy Unit", 15000, "Naval Energy Unit", "a Naval Energy Unit", false);
 	public static final Equipment cloakingDevice = new Equipment("Cloaking Device", 150000, "Cloaking Device", "a Cloaking Device", false);
 	public static final Equipment ecmJammer = new Equipment("ECM Jammer", 150000, "ECM Jammer", "an ECM Jammer", false);
@@ -57,9 +58,10 @@ public class EquipmentStore {
 		if (e == miningLaser) return 12;
 		if (e == militaryLaser) return 13;
 		if (e == retroRockets) return 14;
-		if (e == navalEnergyUnit) return 15;
-		if (e == cloakingDevice) return 16;
-		if (e == ecmJammer) return 17;
+        if (e == largeFuelTank) return 15;
+		if (e == navalEnergyUnit) return 16;
+		if (e == cloakingDevice) return 17;
+		if (e == ecmJammer) return 18;
 		
 		return 0;
 	}
@@ -81,9 +83,10 @@ public class EquipmentStore {
 			case 12: return miningLaser;
 			case 13: return militaryLaser;
 			case 14: return retroRockets;
-			case 15: return navalEnergyUnit;
-			case 16: return cloakingDevice;
-			case 17: return ecmJammer;
+            case 15: return largeFuelTank;
+			case 16: return navalEnergyUnit;
+			case 17: return cloakingDevice;
+			case 18: return ecmJammer;
 		}
 		return null;
 	}

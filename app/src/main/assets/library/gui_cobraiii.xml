@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Page>
-    <Content>
+  <Header>Cobra Mk III</Header>
+  <Content>
     <Text>
         <InlineImage name="sc_cobramkiii"/>
 	<p>Larger, more popular version of the Cobra Mk I (the Mk II only
@@ -24,7 +25,9 @@
 	Hyperspace Capability:,Yes;
         </table>
     </Text>
-    <BackgroundImage name="cobramkiii"/>
+    <Image name="cobramkiii"/>
   </Content>
-    </Page>
+  <Next>gui_coral</Next>
+  <Previous>gui_cobrai</Previous>
+</Page>
 
