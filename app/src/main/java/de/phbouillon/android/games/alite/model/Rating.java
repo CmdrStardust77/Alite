@@ -24,9 +24,10 @@ public enum Rating {
 	POOR           ("Poor",               8192),
 	AVERAGE        ("Average",           16384),
 	ABOVE_AVERAGE  ("Above Average",     32768),
-	COMPETENT      ("Competent",         65536),
-	DANGEROUS      ("Dangerous",        262144),
-	DEADLY         ("Deadly",           655360),
+	COMPETENT      ("Competent",        131072),
+	DANGEROUS      ("Dangerous",        655360),
+	DEADLY         ("Deadly",          1638400
+    ),
 	ELITE          ("E-L-I-T-E",            -1);
 	
 	private String name;
