@@ -807,7 +807,6 @@ public class AliteButtons implements Serializable {
 		if (ship.getSpeed() < -PlayerCobra.TORUS_TEST_SPEED) {
 			inGame.getSpawnManager().leaveTorus();
 		} else {
-            Thread.dumpStack();
 			inGame.getSpawnManager().enterTorus();
 			ship.setSpeed(-PlayerCobra.TORUS_SPEED);
 			inGame.setPlayerControl(false);
