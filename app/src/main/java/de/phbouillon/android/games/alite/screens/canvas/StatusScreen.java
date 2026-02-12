@@ -123,7 +123,7 @@ public class StatusScreen extends AliteScreen {
 			g.drawText(player.getActiveMissions().get(0).getObjective(), 1110, 150, AliteColors.get().missionObjective(), Assets.regularFont);
 		}
 		if (!(((Alite) game).getCurrentScreen() instanceof FlightScreen)) {
-			g.drawText("Visit http://alite.mobi", 50, 1050, AliteColors.get().mainText(), Assets.regularFont);
+			g.drawText("Visit https://github.com/CmdrStardust77/Alite", 50, 1060, AliteColors.get().mainText(), Assets.regularFont);
 		}
 	}
 
