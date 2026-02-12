@@ -462,8 +462,24 @@ public class FlightScreen extends GlScreen implements Serializable {
 	public boolean isHandleUi() {
 		return handleUi;
 	}
-	
-	@Override
+
+    @Override
+    public void processJoystick(float x, float y, float z, float rz, float hatX, float hatY) {
+        if (isSaving || paused || isDisposed || inGame == null || inGame.isDestroyed()) {
+            return;
+        }
+        inGame.processJoystick(x, y, z, rz, hatX, hatY);
+    }
+
+    @Override
+    public void processButtonUp(int button) {
+        if (isSaving || paused || isDisposed || inGame == null || inGame.isDestroyed()) {
+            return;
+        }
+        inGame.processButtonPress(button);
+    }
+
+    @Override
 	public void performUpdate(float deltaTime) {
 		if (isSaving) {
 			return;

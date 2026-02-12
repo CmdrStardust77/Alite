@@ -57,19 +57,19 @@ public class AliteButtons implements Serializable {
 	public static boolean OVERRIDE_MISSILE     = false;
 	public static boolean OVERRIDE_TORUS       = false;
 	
-	private static final int TORUS_DRIVE      =  0;
-	private static final int HYPERSPACE       =  1;
+	public  static final int TORUS_DRIVE      =  0;
+	public  static final int HYPERSPACE       =  1;
 	private static final int GAL_HYPERSPACE   =  2;	
 	private static final int STATUS           =  3;
-	private static final int DOCKING_COMPUTER =  4;
-	private static final int ECM              =  5;
+	public  static final int DOCKING_COMPUTER =  4;
+	public  static final int ECM              =  5;
 	private static final int ESCAPE_CAPSULE   =  6;
 	private static final int ENERGY_BOMB      =  7;	
 	private static final int RETRO_ROCKETS    =  8;	
 	private static final int ECM_JAMMER       =  9;	
 	private static final int CLOAKING_DEVICE  = 10;
 	private static final int MISSILE          = 11;
-	private static final int FIRE             = 12;
+	public  static final int FIRE             = 12;
 	private static final int TIME_DRIVE       = 13;
     
 	private ButtonData [] buttons = new ButtonData[15];	
@@ -296,32 +296,57 @@ public class AliteButtons implements Serializable {
 			buttons[DOCKING_COMPUTER].active = false;
 		}
 	}
-	
+
+    private void disableTorusDriveAndDeactivateButton() {
+        buttons[TORUS_DRIVE].active = false;
+        if (alite.getCobra().getSpeed() < -PlayerCobra.TORUS_TEST_SPEED) {
+            toggleTorusDrive();
+        }
+    }
+
 	private void updateTorusDriveButton() {
 		if (buttons[TORUS_DRIVE] == null) {
 			return;
 		}
-		if (((buttons[DOCKING_COMPUTER] == null) || !buttons[DOCKING_COMPUTER].active) &&
-		    (alite.getCobra().getSpeed() <= -PlayerCobra.MAX_SPEED) &&
-		    !inGame.isInExtendedSafeZone() && !inGame.isWitchSpace() &&
-		    (alite.getCobra().getCabinTemperature() == 0) &&
-		    !inGame.traverseObjects(torusTraverser) && inGame.getHud() != null) {
-			buttons[TORUS_DRIVE].active = true;
-			if (alite.getCobra().getSpeed() < -PlayerCobra.TORUS_TEST_SPEED) {
-				buttons[TORUS_DRIVE].yellow = true;
-			} else if (alite.getTimeFactor() > 1) {
-				// time drive currently engaged, auto change to torus drive
-				alite.setTimeFactor(1);
-				engageTorusDrive();
-				buttons[TORUS_DRIVE].yellow = true;
-			} else {
-				buttons[TORUS_DRIVE].yellow = false;
-			}
+
+        // If the player is not flying with maximum speed, disable torus drive.
+        if (alite.getCobra().getSpeed() > -PlayerCobra.MAX_SPEED) {
+            disableTorusDriveAndDeactivateButton();
+            return;
+        }
+
+        // If player is too close to the station or the star, disable torus drive.
+        // Also disable it, if in witch-space.
+        if (inGame.isInExtendedSafeZone() ||
+            inGame.isWitchSpace() ||
+            alite.getCobra().getCabinTemperature() != 0) {
+            disableTorusDriveAndDeactivateButton();
+            return;
+        }
+
+        // If the docking computer can be engaged, the torus drive cannot be engaged.
+        if (buttons[DOCKING_COMPUTER] != null && buttons[DOCKING_COMPUTER].active) {
+            disableTorusDriveAndDeactivateButton();
+            return;
+        }
+
+        // If any objects are blocking torus drive, disable it.
+        if (inGame.traverseObjects(torusTraverser)) {
+            disableTorusDriveAndDeactivateButton();
+            return;
+        }
+
+        // All prerequisites are met, show torus drive button.
+		buttons[TORUS_DRIVE].active = true;
+		if (alite.getCobra().getSpeed() < -PlayerCobra.TORUS_TEST_SPEED) {
+    		buttons[TORUS_DRIVE].yellow = true;
+		} else if (alite.getTimeFactor() > 1) {
+			// time drive currently engaged, auto change to torus drive
+			alite.setTimeFactor(1);
+			toggleTorusDrive();
+			buttons[TORUS_DRIVE].yellow = true;
 		} else {
-			buttons[TORUS_DRIVE].active = false;
-			if (alite.getCobra().getSpeed() < -PlayerCobra.TORUS_TEST_SPEED) {
-				engageTorusDrive();
-			}
+			buttons[TORUS_DRIVE].yellow = false;
 		}
 	}
 	
@@ -338,8 +363,15 @@ public class AliteButtons implements Serializable {
 			buttons[TIME_DRIVE].yellow = alite.getTimeFactor() > 1;
 		} else {
 			buttons[TIME_DRIVE].active = false;
-			if (alite.getTimeFactor() > 1) {
-				alite.setTimeFactor(1);
+            if (inGame.isInSafeZone() && !inGame.isDockingComputerActive() && alite.getTimeFactor() > 1) {
+                alite.setTimeFactor(1);
+            }
+			if (alite.getTimeFactor() > 1 && inGame.isDockingComputerActive()) {
+                boolean mediumDockingSpeed =
+                           Settings.dockingComputerSpeed == 1
+                        && buttons[DOCKING_COMPUTER] != null
+                        && buttons[DOCKING_COMPUTER].active;
+				alite.setTimeFactor(mediumDockingSpeed ? PlayerCobra.SPEED_UP_FACTOR : 1);
 			}
 		}
 	}
@@ -523,7 +555,34 @@ public class AliteButtons implements Serializable {
 			deactivateFire();
 		} 
 	}
-	
+
+    public void touch(int buttonIndex) {
+        if (buttonIndex < 0 || buttonIndex >= buttons.length) {
+            return;
+        }
+        ButtonData bd = buttons[buttonIndex];
+        if (bd == null || !bd.active || !bd.parent.active) {
+            return;
+        }
+        SoundManager.play(Assets.click);
+        switch (buttonIndex) {
+            case TORUS_DRIVE:      toggleTorusDrive();         break;
+            case TIME_DRIVE:       toggleTimeDrive();          break;
+            case HYPERSPACE:       engageHyperspace();         break;
+            case GAL_HYPERSPACE:   engageGalacticHyperspace(); break;
+            case ECM:              engageECM();                break;
+            case ESCAPE_CAPSULE:   engageEscapeCapsule();      break;
+            case ECM_JAMMER:       toggleECMJammer();          break;
+            case DOCKING_COMPUTER: engageDockingComputer();    break;
+            case ENERGY_BOMB:      engageEnergyBomb();         break;
+            case RETRO_ROCKETS:    engageRetroRockets();       break;
+            case STATUS:           goToStatusView();           break;
+            case FIRE:             toggleAutoFire();           break;
+            case MISSILE:          updateMissileState();       break;
+            case CLOAKING_DEVICE:  toggleCloakingDevice();     break;
+        }
+    }
+
 	public boolean handleTouch(TouchEvent e) {
 		boolean result = false;
 		if (e.type == TouchEvent.TOUCH_DOWN) {
@@ -566,8 +625,8 @@ public class AliteButtons implements Serializable {
 					source = null;
 					SoundManager.play(Assets.click);
 					switch (i) {
-						case TORUS_DRIVE:      engageTorusDrive();         break;
-						case TIME_DRIVE:       engageTimeDrive();          break;
+						case TORUS_DRIVE:      toggleTorusDrive();         break;
+						case TIME_DRIVE:       toggleTimeDrive();          break;
 						case HYPERSPACE:       engageHyperspace();         break;
 						case GAL_HYPERSPACE:   engageGalacticHyperspace(); break;
 						case ECM:              engageECM();                break;
@@ -677,8 +736,8 @@ public class AliteButtons implements Serializable {
 
 	private void engageEscapeCapsule() {
 		if (inGame.isWitchSpace()) {
-// TODO add computer voice file			
-//			SoundManager.play(Assets.escapeCapsuleMalfunction);
+            // TODO add computer voice file
+            // SoundManager.play(Assets.escapeCapsuleMalfunction);
 			inGame.setMessage("Escape Capsule Malfunction");
 			return;
 		}
@@ -741,19 +800,20 @@ public class AliteButtons implements Serializable {
 		buttons[HYPERSPACE].yellow = active;
 	}
 
-	private void engageTorusDrive() {
+	private void toggleTorusDrive() {
 		if (OVERRIDE_TORUS) {
 			return;
 		}
 		if (ship.getSpeed() < -PlayerCobra.TORUS_TEST_SPEED) {
 			inGame.getSpawnManager().leaveTorus();
 		} else {
+            Thread.dumpStack();
 			inGame.getSpawnManager().enterTorus();
 			ship.setSpeed(-PlayerCobra.TORUS_SPEED);
 			inGame.setPlayerControl(false);
 		}
 	}
-	private void engageTimeDrive() {
+	private void toggleTimeDrive() {
 		if (OVERRIDE_TORUS || alite.getCurrentScreen() instanceof TutorialScreen) {
 			return;
 		}

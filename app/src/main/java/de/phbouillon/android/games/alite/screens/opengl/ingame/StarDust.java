@@ -93,9 +93,9 @@ public class StarDust extends GraphicObject implements Serializable {
 	            	   particles[index * 3 + 2] * SIZE_MUL;
 		
 		sizes[index] = 8.0f * AndroidGame.scaleFactor - distSq / 375.0f; 
-											   // 375 == 3000 / 8, with 3000 being the estimated
+							 // 375 == 3000 / 8, with 3000 being the estimated
 		                     // "drop off" point; i.e. everything farther away
-			                   // than that is too small to see anyway...
+			                 // than that is too small to see anyway...
 		
 		if (sizes[index] < 0.01f) {			
 			sizes[index] = 0.01f;

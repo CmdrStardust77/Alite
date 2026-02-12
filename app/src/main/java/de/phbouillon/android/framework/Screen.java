@@ -74,7 +74,7 @@ public abstract class Screen implements Serializable {
 	
 	public void processJoystick(float x, float y, float z, float rz, float hatX, float hatY) {		
 	}
-	
+
 	public void processButtonUp(int button) {	
 	}
 	

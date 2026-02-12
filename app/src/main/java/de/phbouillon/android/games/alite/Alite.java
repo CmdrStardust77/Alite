@@ -99,8 +99,9 @@ public class Alite extends AndroidGame {
 		
 	@Override
 	public void onWindowFocusChanged(boolean hasFocus) {
-		super.onWindowFocusChanged(hasFocus);		
+		super.onWindowFocusChanged(hasFocus);
 		AndroidUtil.setImmersion(getCurrentView());
+        getCurrentView().requestPointerCapture();
 	}
 	
 	@Override

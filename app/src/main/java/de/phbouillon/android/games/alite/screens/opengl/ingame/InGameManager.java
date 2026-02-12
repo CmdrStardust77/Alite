@@ -29,6 +29,8 @@ import java.util.List;
 import android.graphics.Rect;
 import android.opengl.GLES11;
 import android.opengl.Matrix;
+import android.view.KeyEvent;
+
 import de.phbouillon.android.framework.Geometry;
 import de.phbouillon.android.framework.Input.TouchEvent;
 import de.phbouillon.android.framework.Screen;
@@ -92,11 +94,13 @@ public class InGameManager implements Serializable {
 	private transient String            feeText           = null;
 	private transient Alite             alite;
 	
-	private final Vector3f              deltaYawRollPitch     = new Vector3f(0, 0, 0);
-	private final Vector3f              tempVector            = new Vector3f(0, 0, -1);
-	private final Vector3f              systemStationPosition = new Vector3f(0, 0, 0);
-	private final Vector3f              zero                  = new Vector3f(0, 0, 0);
-	private final Vector3f              deltaOrientation      = new Vector3f(0, 0, 0);
+	private final Vector3f              deltaYawRollPitch      = new Vector3f(0, 0, 0);
+    private final Vector3f              deltaYawRollPitchStick = new Vector3f(0, 0, 0);
+    private float                       deltaSpeed             = 0.0f;
+	private final Vector3f              tempVector             = new Vector3f(0, 0, -1);
+	private final Vector3f              systemStationPosition  = new Vector3f(0, 0, 0);
+	private final Vector3f              zero                   = new Vector3f(0, 0, 0);
+	private final Vector3f              deltaOrientation       = new Vector3f(0, 0, 0);
 	
 	private final float [][]            tempMatrix = new float[3][16];
 	private final float []              viewMatrix = new float[16];		
@@ -423,9 +427,12 @@ public class InGameManager implements Serializable {
 
 	public void setPlayerControl(boolean playerControl) {
 		this.playerControl = playerControl;
-		deltaYawRollPitch.x = 0.0f;
-		deltaYawRollPitch.y = 0.0f;
-		deltaYawRollPitch.z = 0.0f;
+		deltaYawRollPitch.x      = 0.0f;
+		deltaYawRollPitch.y      = 0.0f;
+		deltaYawRollPitch.z      = 0.0f;
+        deltaYawRollPitchStick.x = 0.0f;
+        deltaYawRollPitchStick.y = 0.0f;
+        deltaYawRollPitchStick.z = 0.0f;
 	}
 	
 	public boolean isPlayerControl() {
@@ -488,7 +495,7 @@ public class InGameManager implements Serializable {
 		}
 		float accelY = alite.getInput().getAccelY();
 		float accelZ = alite.getInput().getAccelZ();
-		
+
 		deltaYawRollPitch.x = 0;
 		deltaYawRollPitch.y = -clamp((int) (accelY * 50.0f) / 10.0f, -2.0f, 2.0f);
 		deltaYawRollPitch.z =  clamp((int) (accelZ * 30.0f) / 10.0f, -2.0f, 2.0f);
@@ -507,7 +514,56 @@ public class InGameManager implements Serializable {
 			deltaYawRollPitch.y = hud.getY();
 		} 		
 	}
-		
+
+    void handleJoystickSpeedChange(float speedPosition) {
+        deltaSpeed = speedPosition * 40.0f;
+    }
+
+    private void changeShipSpeed(float deltaTime) {
+        if (playerControl && !OVERRIDE_SPEED && ship.getSpeed() <= 0) {
+            // No speed change if retro rockets are being fired right now...
+            //changingSpeed = true;
+            float newSpeed = ship.getSpeed() + deltaSpeed * deltaTime;
+            if (deltaSpeed > 0) {
+                if (newSpeed > 0.0f) {
+                    newSpeed = 0.0f;
+                }
+            } else if (newSpeed < -PlayerCobra.MAX_SPEED) {
+                newSpeed = -PlayerCobra.MAX_SPEED;
+            }
+            ship.setSpeed(newSpeed);
+        }
+    }
+
+    public void processJoystick(float x, float y, float z, float rz, float hatX, float hatY) {
+        if (!playerControl) {
+            return;
+        }
+
+        float accelY = x;
+        float accelZ = y;
+        handleJoystickSpeedChange(rz * 5.0f);
+
+        deltaYawRollPitchStick.x = 0; // 25, 15
+        deltaYawRollPitchStick.y = -clamp((int) (accelY * 10.0f) / 10.0f, -2.0f, 2.0f);
+        deltaYawRollPitchStick.z =  clamp((int) (accelZ *  6.0f) / 10.0f, -2.0f, 2.0f);
+        if (Settings.reversePitch) {
+            deltaYawRollPitchStick.z = -deltaYawRollPitchStick.z;
+        }
+    }
+
+    public void processButtonPress(int button) {
+        if (buttons == null) {
+            return;
+        }
+        switch (button) {
+            case KeyEvent.KEYCODE_BUTTON_A: buttons.touch(AliteButtons.FIRE); break; // PlayStation controller: X
+            case KeyEvent.KEYCODE_BUTTON_B: buttons.touch(AliteButtons.ECM); break; // PlayStation controller: Kreis
+            case KeyEvent.KEYCODE_BUTTON_X: buttons.touch(AliteButtons.HYPERSPACE); break; // PlayStation controller: Quadrat
+            case KeyEvent.KEYCODE_BUTTON_Y: buttons.touch(AliteButtons.TORUS_DRIVE); break; // PlayStation controller: Dreieck
+        }
+    }
+
 	private void updateShipOrientation() {
 		if (!playerControl) {
 			return;
@@ -1000,6 +1056,10 @@ public class InGameManager implements Serializable {
 			ship.applyDeltaRotation((float) Math.toDegrees(deltaYawRollPitch.z * deltaTime),
 									(float) Math.toDegrees(deltaYawRollPitch.x * deltaTime),
 									(float) Math.toDegrees(deltaYawRollPitch.y * deltaTime));
+            ship.applyDeltaRotation((float) Math.toDegrees(deltaYawRollPitchStick.z * deltaTime),
+                                    (float) Math.toDegrees(deltaYawRollPitchStick.x * deltaTime),
+                                    (float) Math.toDegrees(deltaYawRollPitchStick.y * deltaTime));
+            changeShipSpeed(deltaTime);
 		}
 
 		ship.orthoNormalize();		
@@ -1020,7 +1080,12 @@ public class InGameManager implements Serializable {
 		GLES11.glMatrixMode(GLES11.GL_MODELVIEW);
 		GLES11.glLoadIdentity();
 		if (playerControl) {
-			alite.getCobra().setRotation(deltaYawRollPitch.z, deltaYawRollPitch.y);
+            if (Math.abs(deltaYawRollPitchStick.z) > Math.abs(deltaYawRollPitch.z) ||
+                Math.abs(deltaYawRollPitchStick.y) > Math.abs(deltaYawRollPitch.y)) {
+                alite.getCobra().setRotation(deltaYawRollPitchStick.z, deltaYawRollPitchStick.y);
+            } else {
+                alite.getCobra().setRotation(deltaYawRollPitch.z, deltaYawRollPitch.y);
+            }
 		}
 		alite.getCobra().setSpeed(ship.getSpeed());
 		hud.render();	
@@ -1219,8 +1284,8 @@ public class InGameManager implements Serializable {
 							if ((targetMissile && alite.getCobra().getMissiles() > 0) || (Settings.autoId && !((SpaceObject) go).isIdentified())) {							
 								if (laserManager.isUnderCross((SpaceObject) go, ship, viewDirection)) {
 									if (targetMissile) {
-										AliteLog.d("Targetted", "Targetted " + go.getName());
-										setMessage("Missiled locked on "  + go.getName());
+										AliteLog.d("Targeted", "Targeted " + go.getName());
+										setMessage("Missile locked on "  + go.getName());
 										alite.getCobra().setMissileLocked(true);
 										missileLock = (SpaceObject) go;
 										SoundManager.play(Assets.missileLocked);

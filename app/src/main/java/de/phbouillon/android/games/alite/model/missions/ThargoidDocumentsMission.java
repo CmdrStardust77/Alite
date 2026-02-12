@@ -30,6 +30,7 @@ import de.phbouillon.android.games.alite.SoundManager;
 import de.phbouillon.android.games.alite.model.Condition;
 import de.phbouillon.android.games.alite.model.EquipmentStore;
 import de.phbouillon.android.games.alite.model.Player;
+import de.phbouillon.android.games.alite.model.PlayerCobra;
 import de.phbouillon.android.games.alite.model.Weight;
 import de.phbouillon.android.games.alite.screens.canvas.AliteScreen;
 import de.phbouillon.android.games.alite.screens.canvas.missions.ThargoidDocumentsScreen;
@@ -80,7 +81,7 @@ public class ThargoidDocumentsMission extends Mission {
 		if (accept) {
 			alite.getPlayer().addActiveMission(this);
 			alite.getCobra().setMissiles(4);
-			alite.getCobra().setFuel(70);
+			alite.getCobra().setFuel(PlayerCobra.MAXIMUM_FUEL);
 			alite.getCobra().addSpecialCargo("Thargoid Documents", Weight.grams(482));
 			state = 1;
 			resetTargetName();

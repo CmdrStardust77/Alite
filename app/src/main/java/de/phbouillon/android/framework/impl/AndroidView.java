@@ -1,6 +1,8 @@
 package de.phbouillon.android.framework.impl;
 
 import de.phbouillon.android.framework.Screen;
+import de.phbouillon.android.games.alite.AliteLog;
+
 import android.opengl.GLSurfaceView;
 import android.view.InputDevice;
 import android.view.KeyEvent;
@@ -14,6 +16,7 @@ public class AndroidView extends GLSurfaceView {
 		super(game);
 		this.game = game;
 		dpad = new Dpad();
+        setDefaultFocusHighlightEnabled(false);
 	}
 		
 	private boolean isController(int sourceId) {
@@ -22,7 +25,7 @@ public class AndroidView extends GLSurfaceView {
 			   (sourceId & InputDevice.SOURCE_JOYSTICK) == InputDevice.SOURCE_JOYSTICK;
 	}
 	
-	private static float getCenteredAxis(MotionEvent event,
+	protected static float getCenteredAxis(MotionEvent event,
 	        InputDevice device, int axis, int historyPos) {
 	    final InputDevice.MotionRange range =
 	            device.getMotionRange(axis, event.getSource());
@@ -112,4 +115,9 @@ public class AndroidView extends GLSurfaceView {
 		}		
 		return super.onKeyUp(keyCode, event);
 	}
+
+    @Override
+    public boolean onCapturedPointerEvent(MotionEvent event) {
+        return true;
+    }
 }

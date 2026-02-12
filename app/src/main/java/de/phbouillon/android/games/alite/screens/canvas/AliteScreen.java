@@ -73,7 +73,7 @@ public abstract class AliteScreen extends Screen {
 	protected boolean largeMessage = false;
 	private int selectedMenuIndex = -1;
 	private boolean executeNavigation;
-	
+
 	public static enum MessageType {
 		OK,
 		YESNO
@@ -119,7 +119,7 @@ public abstract class AliteScreen extends Screen {
 	public String getMessage() {
 		return message;
 	}
-	
+
 	protected void centerText(String text, int y, GLText f, long color) {
 		int center = ((1920 - NavigationBar.SIZE) >> 1) - (game.getGraphics().getTextWidth(text, f) >> 1);
 		game.getGraphics().drawText(text, center, y, color, f);		
@@ -230,8 +230,8 @@ public abstract class AliteScreen extends Screen {
 	public void processNavigationButtonDown(int button) {		
 	}
 	
-	public void processNavigationButtonUp(int button) {	
-		if (selectedMenuIndex != -1 && button == KeyEvent.KEYCODE_BUTTON_B) {			
+	public void processNavigationButtonUp(int button) {
+		if (selectedMenuIndex != -1 && button == KeyEvent.KEYCODE_BUTTON_B) {
 			executeNavigation = true;
 		}
 	}

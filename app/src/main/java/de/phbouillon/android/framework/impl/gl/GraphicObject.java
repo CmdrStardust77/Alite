@@ -28,6 +28,7 @@ import android.opengl.Matrix;
 import de.phbouillon.android.framework.Updater;
 import de.phbouillon.android.framework.math.Vector3f;
 import de.phbouillon.android.games.alite.AliteLog;
+import de.phbouillon.android.games.alite.screens.opengl.objects.space.ships.CobraMkIII;
 
 public class GraphicObject implements Serializable {
 	private static final long serialVersionUID = -8039542554642450651L;
